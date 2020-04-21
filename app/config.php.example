@@ -5,5 +5,9 @@ return [
         'dsn'       => '',
         'username'  => '',
         'password'  => ''
+    ],
+    'mongodb' => [
+        'host'      => '',
+        'dbname'    => ''
     ]
 ];

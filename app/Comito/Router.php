@@ -24,12 +24,14 @@ class Router
             case FastRoute\Dispatcher::NOT_FOUND:
                 header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found", true, 404);
                 // chargement d'un template error 405
+                echo (new ErrorController())->error_404();
                 exit;
                 break;
             case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
                 
                 header($_SERVER["SERVER_PROTOCOL"]." 405 Method Not Allowed", true, 405);
                 // chargement d'un template error 405
+                echo (new ErrorController())->error_405();
                 exit;
                 break;
             case FastRoute\Dispatcher::FOUND:

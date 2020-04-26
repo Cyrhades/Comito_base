@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use Comito\AbstractController;
 
-class Home extends AbstractController
+class HomeController extends AbstractController
 {
     public function print() 
     {

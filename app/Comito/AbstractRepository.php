@@ -4,6 +4,7 @@ namespace Comito;
 
 use Comito\Database\MongoDB;
 use Comito\Database\ConnectMySql;
+use Comito\Database\Redis;
 
 abstract class AbstractRepository
 {
@@ -20,8 +21,15 @@ abstract class AbstractRepository
             case 'mongodb' :
                 $connect = MongoDB::getInstance();
                 break;
+            case 'redis' :
+            case 'predis' :
+                $connect = Redis::getInstance();
+                break;
         }
-        $this->db = $connect->getDatabase();
+        if($connect)
+            $this->db = $connect->getDatabase();
+        else
+            throw new Exception('No database Connect');
     }
 
     /**

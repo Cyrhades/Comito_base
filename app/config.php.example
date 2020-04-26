@@ -9,5 +9,9 @@ return [
     'mongodb' => [
         'host'      => '',
         'dbname'    => ''
+    ],
+    'redis' => [
+        'host' => '',
+        'password' => ''
     ]
 ];

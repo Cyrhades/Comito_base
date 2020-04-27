@@ -13,9 +13,9 @@ class Kernel
         $this->router = new Router();
     }
 
-    public function run()
+    public function run(string $RoutingFile)
     {
-        $dispatcher = $this->router->setRoutes();
+        $dispatcher = $this->router->setRoutes($RoutingFile);
         $this->router->dispatching($dispatcher);
     }
 }

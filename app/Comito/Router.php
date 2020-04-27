@@ -6,10 +6,14 @@ use FastRoute;
 
 class Router
 {
-    public function setRoutes() 
+    public function setRoutes(string $RoutingFile) 
     {
-        $routes = include dirname(__DIR__).'/routes.php';
-        return FastRoute\simpleDispatcher($routes);
+        if(file_exists($RoutingFile)) {
+            $routes = include $RoutingFile;
+            return FastRoute\simpleDispatcher($routes);
+        } else {
+            throw new \Exception('Le fichier '.$RoutingFile.' n\'a pas été trouvé.');
+        }
     }
  
     public function dispatching($dispatcher) 
